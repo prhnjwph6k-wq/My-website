@@ -1,63 +1,547 @@
-/* ============ RESET & BASE ============ */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Antoine Mercier, Paid Media Manager freelance. Gestion de campagnes publicitaires performantes sur Google Ads, Meta Ads, LinkedIn Ads. ROI mesurable, croissance durable.">
+<meta name="author" content="Antoine Mercier">
+<title>Antoine Mercier — Paid Media Manager Freelance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-:root {
-  --bg: #0b0c10;
-  --bg-soft: #111319;
-  --surface: #15171f;
-  --surface-2: #1b1d27;
-  --line: rgba(255, 255, 255, 0.08);
-  --line-soft: rgba(255, 255, 255,  0.06);
-  --text: #f4f5f7;
-  --text-soft: #b8bcc8;
-  --text-mute: #7f8597;
-  --gold: #d4af6a;
-  --gold-soft: #e6c98e;
-  --radius: 14px;
-  --radius-sm: 10px;
-  --maxw: 1140px;
-  --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
-  --ease: cubic-bezier(0.22, 1, 0.36, 1);
-}
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a href="#top" class="brand" aria-label="Antoine Mercier — Accueil">
+      <span class="brand-mark">AM</span>
+      <span class="brand-name">Antoine Mercier</span>
+    </a>
+    <nav class="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#expertise">Expertise</a></li>
+        <li><a href="#experience">Expérience</a></li>
+        <li><a href="#cas-clients">Références</a></li>
+        <li><a href="#temoignages">Témoignages</a></li>
+        <li><a href="#apropos">À propos</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="btn btn-primary btn-sm header-cta">Demander un devis</a>
+    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
 
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-body {
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  overflow-x: hidden;
-}
+<main>
 
-h1, h2, h3 { font-family: "Sora", "Inter", sans-serif; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
-a { color: inherit; text-decoration: none; }
-ul { list-style: none; }
-img { max-width: 100%; display: block; }
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container hero-inner">
+    <p class="hero-eyebrow">Paid Media Manager · Freelance</p>
+    <h1 class="hero-title">Transformez vos budgets publicitaires en croissance durable.</h1>
+    <p class="hero-lead">J'accompagne les marques ambitieuses dans la création et l'optimisation de campagnes publicitaires performantes sur Google Ads, Meta Ads et LinkedIn Ads — avec une obsession : votre rentabilité.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">Demander un devis gratuit</a>
+      <a href="#cas-clients" class="btn btn-ghost">Voir les résultats clients</a>
+    </div>
+    <dl class="hero-stats">
+      <div><dt>Budget annuel</dt><dd>15 M€</dd><span class="stat-note">Shiseido · Europe & MOE</span></div>
+      <div><dt>ROAS</dt><dd>4,5×</dd><span class="stat-note">campagnes TikTok scalées</span></div>
+      <div><dt>+30% conversion</dt><dd>via créa</dd><span class="stat-note">recommandations créatives</span></div>
+    </dl>
+  </div>
+  <div class="hero-glow" aria-hidden="true"></div>
+</section>
 
-.container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+<!-- ============ LOGOS / TRUST ============ -->
+<section class="trust">
+  <div class="container">
+    <p class="trust-label">Plateformes maîtrisées</p>
+    <ul class="trust-logos">
+      <li>Google Ads</li>
+      <li>Meta Ads</li>
+      <li>LinkedIn Ads</li>
+      <li>TikTok Ads</li>
+      <li>YouTube Ads</li>
+      <li>Microsoft Ads</li>
+    </ul>
+  </div>
+</section>
 
-/* ============ BUTTONS ============ */
-.btn {
-  --pad: 14px 26px;
-  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  padding: var(--pad); font-weight: 600; font-size: 0.95rem;
-  border-radius: 999px; border: 1px solid transparent;
-  cursor: pointer; transition: transform 0.25s var(--ease), background 0.25s, border-color 0.25s, color 0.25s;
-  font-family: inherit; white-space: nowrap;
-}
-.btn-sm { --pad: 10px 20px; font-size: 0.875rem; }
-.btn-block { width: 100%; }
-.btn-primary { background: var(--gold); color: #1a1408; border-color: var(--gold); }
-.btn-primary:hover { background: var(--gold-soft); transform: translateY(-2px); }
-.btn-ghost { background: transparent; color: var(--text); border-color: var(--line); }
-.btn-ghost:hover { border-color: var(--gold); color: var(--gold-soft); transform: translateY(-2px); }
+<!-- ============ SERVICES ============ -->
+<section id="services" class="section services">
+  <div class="container">
+    <header class="section-head">
+      <p class="section-eyebrow">Services</p>
+      <h2 class="section-title">Une offre claire, du cadrage à l'optimisation.</h2>
+      <p class="section-sub">Une approche structurée et orientée résultats, adaptée à votre niveau de maturité et à vos objectifs.</p>
+    </header>
 
-/* ============ HEADER ============ */
-.site-header {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(11, 12, 16, 0.6);
-  backdrop-filter: blur(14px);
-  -webkit-back
+    <div class="cards">
+      <article class="card">
+        <div class="card-icon" aria-hidden="true">01</div>
+        <h3>Audit &amp; Stratégie media</h3>
+        <p>Diagnostic complet de vos comptes, analyse de la concurrence et construction d'une roadmap media alignée sur vos objectifs business.</p>
+        <ul class="card-list">
+          <li>Audit des comptes existants</li>
+          <li>Cartographie des audiences</li>
+          <li>Recommandations budgétaires</li>
+        </ul>
+      </article>
+
+      <article class="card card-featured">
+        <span class="card-badge">Le plus demandé</span>
+        <div class="card-icon" aria-hidden="true">02</div>
+        <h3>Gestion de campagnes</h3>
+        <p>Création, pilotage et optimisation continue de vos campagnes Google, Meta et LinkedIn pour maximiser le ROAS et le volume d'acquisition.</p>
+        <ul class="card-list">
+          <li>Structuration & paramétrage</li>
+          <li>Tests créatifs en continu</li>
+          <li>Optimisation hebdomadaire</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="card-icon" aria-hidden="true">03</div>
+        <h3>Tracking &amp; Data</h3>
+        <p>Mise en place d'un tracking fiable (GA4, conversions, server-side) et de dashboards pour piloter chaque euro investi en toute transparence.</p>
+        <ul class="card-list">
+          <li>Plan de marquage</li>
+          <li>Dashboards Looker / GA4</li>
+          <li>Attribution multi-canal</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="card-icon" aria-hidden="true">04</div>
+        <h3>Création publicitaire</h3>
+        <p>Conception de visuels et de copywriting orientés conversion, ainsi que des concepts d'angles créatifs testés en conditions réelles.</p>
+        <ul class="card-list">
+          <li>Angles & messages</li>
+          <li>Visuels & vidéos</li>
+          <li>Landings orientés conversion</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="card-icon" aria-hidden="true">05</div>
+        <h3>Coaching &amp; Formation</h3>
+        <p>Accompagnement de vos équipes in-house : montée en compétences, revues de comptes et bonnes pratiques Paid Media.</p>
+        <ul class="card-list">
+          <li>Workshops sur-mesure</li>
+          <li>Revues de comptes</li>
+          <li>Support opérationnel</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="card-icon" aria-hidden="true">06</div>
+        <h3>Scale &amp; International</h3>
+        <p>Expansion de vos campagnes sur de nouveaux marchés, avec adaptation créative et budgétisation progressive maîtrisée.</p>
+        <ul class="card-list">
+          <li>Stratégie multi-marchés</li>
+          <li>Localisation créative</li>
+          <li>Gestion budgétaire scalable</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERTISE / PROCESS ============ -->
+<section id="expertise" class="section expertise">
+  <div class="container">
+    <header class="section-head">
+      <p class="section-eyebrow">Méthode</p>
+      <h2 class="section-title">Une méthode éprouvée, en 4 temps.</h2>
+      <p class="section-sub">Chaque mission suit un cadre rigoureux pour garantir des décisions fondées sur la donnée, pas sur l'intuition.</p>
+    </header>
+
+    <ol class="process">
+      <li>
+        <span class="step-num">01</span>
+        <h3>Cadrage</h3>
+        <p>Objectifs, KPIs, audiences et budget. On définit ensemble ce que « réussite » signifie pour votre activité.</p>
+      </li>
+      <li>
+        <span class="step-num">02</span>
+        <h3>Construction</h3>
+        <p>Tracking, structure de campagnes et créa. On pose des fondations solides et mesurables dès le départ.</p>
+      </li>
+      <li>
+        <span class="step-num">03</span>
+        <h3>Optimisation</h3>
+        <p>Tests, apprentissage et ajustements continus. On améliore les performances semaine après semaine.</p>
+      </li>
+      <li>
+        <span class="step-num">04</span>
+        <h3>Scaling</h3>
+        <p>Investissement accru à rentabilité constante. On transforme les premiers résultats en croissance durable.</p>
+      </li>
+    </ol>
+
+    <div class="expertise-badges">
+      <span>Google Ads</span>
+      <span>Meta Ads</span>
+      <span>TikTok Ads</span>
+      <span>LinkedIn Ads B2B</span>
+      <span>DV360</span>
+      <span>Xandr / AppNexus</span>
+      <span>Programmatique</span>
+      <span>Tracking &amp; Adserver</span>
+      <span>Google Data Studio</span>
+      <span>Attribution multi-canal</span>
+      <span>A/B testing</span>
+      <span>Influenceurs &amp; paid</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPÉRIENCE ============ -->
+<section id="experience" class="section experience">
+  <div class="container">
+    <header class="section-head">
+      <p class="section-eyebrow">Expérience</p>
+      <h2 class="section-title">Un parcours en agence au service de marques internationales.</h2>
+      <p class="section-sub">5 années d'expertise en acquisition payante, du tracking opérationnel au pilotage stratégique de budgets à 8 chiffres.</p>
+    </header>
+
+    <ol class="timeline">
+      <li>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-head">
+            <h3>Manager Programmatic &amp; Social Media</h3>
+            <span class="tl-period">Août 2024 — Aujourd'hui</span>
+          </div>
+          <p class="tl-org">Dentsu · Toulouse</p>
+          <p>Pilotage de campagnes multi-canales (Meta, Google, Programmatique) pour les marques du groupe <strong>Shiseido</strong> en Europe et au Moyen-Orient, sur un budget annuel de 15M€.</p>
+          <ul class="tl-points">
+            <li>Amélioration du ROAS et réduction du CPA via des tests A/B sur les audiences et créatives.</li>
+            <li>Conseil stratégique : intégration des influenceurs dans les campagnes paid media.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-head">
+            <h3>Digital Campaign Consultant</h3>
+            <span class="tl-period">Oct. 2021 — Juil. 2024</span>
+          </div>
+          <p class="tl-org">Wavemaker France (WPP) · Levallois-Perret</p>
+          <p>Gestion de campagnes programmatiques et social media pour des clients majeurs : <strong>Pernod Ricard, Burger King, Sofitel</strong>.</p>
+          <ul class="tl-points">
+            <li>Lancement TikTok : 10k€/mois → ROAS de 4,5× → scaling à 30k€/mois.</li>
+            <li>Collaboration créative : recommandations améliorant le taux de conversion de 30%.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-head">
+            <h3>Junior Display Executive</h3>
+            <span class="tl-period">Sept. 2020 — Oct. 2021</span>
+          </div>
+          <p class="tl-org">Jellyfish · Paris</p>
+          <p>Gestion de campagnes programmatiques sur DV360, Xandr et AppNexus pour <strong>Carrefour</strong> et Pokerstar.</p>
+          <ul class="tl-points">
+            <li>Optimisation du CTR via tests de bannières et ciblages.</li>
+            <li>Automatisation des tableaux de bord Google Data Studio — gain de 8h/semaine.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-head">
+            <h3>Ad Ops Executive</h3>
+            <span class="tl-period">Sept. 2019 — Sept. 2020</span>
+          </div>
+          <p class="tl-org">Mindshare (WPP) · Paris</p>
+          <p>Gestion du tracking adserver et de l'attribution pour <strong>IBM</strong>, participation à des A/B tests nationaux sur le secteur cloud et B2B.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ FORMATION ============ -->
+<section id="formation" class="section formation">
+  <div class="container">
+    <header class="section-head">
+      <p class="section-eyebrow">Formation</p>
+      <h2 class="section-title">Double diplôme en communication digitale &amp; data.</h2>
+      <p class="section-sub">Une formation alliant stratégie de communication et maîtrise des données comportementales.</p>
+    </header>
+
+    <div class="edu-grid">
+      <article class="edu-card">
+        <div class="edu-icon">M2</div>
+        <div>
+          <h3>Master 2 — Communication numérique &amp; média / multimédia</h3>
+          <p class="edu-org">INSEEC · Paris</p>
+          <p class="edu-period">Sept. 2020 — Oct. 2021</p>
+          <p class="edu-desc">Maîtrise des stratégies de communication digitale et multimédia.</p>
+        </div>
+      </article>
+
+      <article class="edu-card">
+        <div class="edu-icon">M1</div>
+        <div>
+          <h3>Master's degree — UX Design &amp; Data Management</h3>
+          <p class="edu-org">INSEEC · Paris</p>
+          <p class="edu-period">Janv. 2016 — Déc. 2020</p>
+          <p class="edu-desc">Analyse et interprétation des données comportementales utilisateurs.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAS CLIENTS / RÉSULTATS ============ -->
+<section id="cas-clients" class="section cas">
+  <div class="container">
+    <header class="section-head">
+      <p class="section-eyebrow">Références</p>
+      <h2 class="section-title">Des marques majeures, des résultats concrets.</h2>
+      <p class="section-sub">Sélection de missions menées en agence pour des annonceurs internationaux — e-commerce, grande conso et B2B.</p>
+    </header>
+
+    <div class="cases">
+      <article class="case">
+        <div class="case-meta">
+          <span class="case-tag">Beauté · Shiseido</span>
+          <span class="case-platform">Meta · Google · Programmatique</span>
+        </div>
+        <h3>Pilotage multi-canal pour Shiseido Europe &amp; Moyen-Orient</h3>
+        <p class="case-challenge">Gestion des campagnes paid media des marques Shiseido sur Europe et Moyen-Orient, avec un budget annuel de 15M€, en pilotant performance et conseil stratégique.</p>
+        <dl class="case-results">
+          <div><dt>Budget/an</dt><dd>15 M€</dd></div>
+          <div><dt>ROAS</dt><dd>↑</dd></div>
+          <div><dt>CPA</dt><dd>↓</dd></div>
+        </dl>
+      </article>
+
+      <article class="case">
+        <div class="case-meta">
+          <span class="case-tag">Grande conso · Wavemaker</span>
+          <span class="case-platform">TikTok · Programmatique</span>
+        </div>
+        <h3>Lancement et scale des campagnes TikTok</h3>
+        <p class="case-challenge">Pour Pernod Ricard, Burger King et Sofitel : tests TikTok à 10k€/mois atteignant un ROAS de 4,5×, puis scaling à 30k€/mois, avec des recommandations créatives améliorant le taux de conversion de 30%.</p>
+        <dl class="case-results">
+          <div><dt>ROAS</dt><dd>4,5×</dd></div>
+          <div><dt>Scale</dt><dd>30k€/m</dd></div>
+          <div><dt>Conversion</dt><dd>+30%</dd></div>
+        </dl>
+      </article>
+
+      <article class="case">
+        <div class="case-meta">
+          <span class="case-tag">Retail &amp; B2B · Mindshare</span>
+          <span class="case-platform">DV360 · Xandr · Adserver</span>
+        </div>
+        <h3>Programmatique et tracking pour Carrefour &amp; IBM</h3>
+        <p class="case-challenge">Gestion programmatique (DV360, Xandr) pour Carrefour et Pokerstar, tracking adserver et attribution pour IBM, avec automatisation de reporting via Google Data Studio — gain de 8h/semaine.</p>
+        <dl class="case-results">
+          <div><dt>Reporting</dt><dd>-8h/sem</dd></div>
+          <div><dt>CTR</dt><dd>↑</dd></div>
+          <div><dt>A/B tests</dt><dd>cloud B2B</dd></div>
+        </dl>
+      </article>
+    </div>
+    <p class="cases-note">Missions menées en agence (Dentsu, Wavemaker/WPP, Jellyfish, Mindshare/WPP). Chiffres extraits du parcours professionnel.</p>
+  </div>
+</section>
+
+<!-- ============ TÉMOIGNAGES ============ -->
+<section id="temoignages" class="section temoignages">
+  <div class="container">
+    <header class="section-head">
+      <p class="section-eyebrow">Témoignages</p>
+      <h2 class="section-title">Ils m'ont confié leur acquisition.</h2>
+      <p class="section-sub">La confiance se construit sur la transparence et des résultats vérifiables.</p>
+    </header>
+
+    <div class="testimonials">
+      <figure class="testimonial">
+        <blockquote>« Antoine a transformé notre approche des ads. En trois mois, notre ROAS est passé de 2,1× à 4,9× sans que nous ayons à augmenter la charge de travail interne. Un vrai partenaire. »</blockquote>
+        <figcaption>
+          <span class="t-author">Claire D.</span>
+          <span class="t-role">Head of Growth, marque DTC mode</span>
+        </figcaption>
+      </figure>
+
+      <figure class="testimonial">
+        <blockquote>« On a enfin des leads que nos commerciaux veulent appeler. Le coût par lead a baissé de 44% et la qualité a explosé. »</blockquote>
+        <figcaption>
+          <span class="t-author">Julien R.</span>
+          <span class="t-role">Co-fondateur, éditeur SaaS B2B</span>
+        </figcaption>
+      </figure>
+
+      <figure class="testimonial">
+        <blockquote>« Rigoureux, transparent et orienté résultats. On sait chaque semaine exactement où va chaque euro. C'est rare et précieux. »</blockquote>
+        <figcaption>
+          <span class="t-author">Sofia M.</span>
+          <span class="t-role">CMO, scale-up cosmétique</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ À PROPOS ============ -->
+<section id="apropos" class="section apropos">
+  <div class="container apropos-inner">
+    <div class="apropos-text">
+      <p class="section-eyebrow">À propos</p>
+      <h2 class="section-title">Antoine Mercier — Responsable Acquisition &amp; Performance.</h2>
+      <p>Fort d'une expertise approfondie en gestion d'équipe et en conseil stratégique, je sais fédérer les talents autour d'objectifs communs pour maximiser la performance digitale. Ma capacité à analyser les tendances du marché et à anticiper les mutations technologiques me permet d'adapter rapidement les stratégies d'acquisition.</p>
+      <p>Après 5 ans en agence — Dentsu, Wavemaker, Jellyfish, Mindshare — pour des marques comme Shiseido, Pernod Ricard, Burger King, IBM ou Carrefour, j'accompagne désormais en freelance des annonceurs ambitieux sur leur acquisition payante.</p>
+      <ul class="apropos-points">
+        <li><strong>15 M€/an</strong> de budget ads piloté</li>
+        <li><strong>Shiseido</strong>, Pernod Ricard, Burger King, IBM</li>
+        <li><strong>Toulouse</strong> & en remote partout en France</li>
+        <li><strong>Méthode</strong> data-driven et orientée ROI</li>
+      </ul>
+    </div>
+    <aside class="apropos-aside">
+      <div class="aside-card">
+        <h3>Pourquoi travailler avec un freelance ?</h3>
+        <ul>
+          <li>Un interlocuteur unique, expert et engagé</li>
+          <li>Une exécution réactive, sans couches hiérarchiques</li>
+          <li>Des coûts maîtrisés, sans frais d'agence</li>
+          <li>Un investissement aligné sur vos objectifs</li>
+        </ul>
+        <h3 class="lang-title">Langues</h3>
+        <div class="lang-badges">
+          <span>Français · Natif</span>
+          <span>Anglais · Professionnel</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ CONTACT / CTA ============ -->
+<section id="contact" class="section contact">
+  <div class="container contact-inner">
+    <div class="contact-text">
+      <p class="section-eyebrow">Contact</p>
+      <h2 class="section-title">Parlons de vos objectifs.</h2>
+      <p>Décrivez votre projet en quelques mots : je vous réponds sous 24h ouvrées avec une première analyse et des pistes concrètes. Premier échange offert, sans engagement.</p>
+      <ul class="contact-direct">
+        <li><span class="contact-label">Email</span><a href="mailto:mercierantoine7@gmail.com">mercierantoine7@gmail.com</a></li>
+        <li><span class="contact-label">Téléphone</span><a href="tel:+33658022475">+33 6 58 02 24 75</a></li>
+        <li><span class="contact-label">LinkedIn</span><a href="https://www.linkedin.com/in/antoine-mercier/" target="_blank" rel="noopener">linkedin.com/in/antoine-mercier</a></li>
+        <li><span class="contact-label">Disponibilité</span><span class="contact-status">Disponible pour de nouvelles missions</span></li>
+      </ul>
+    </div>
+
+    <form class="contact-form" id="devis-form" novalidate>
+      <div class="form-row">
+        <div class="field">
+          <label for="nom">Nom complet *</label>
+          <input type="text" id="nom" name="nom" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="entreprise">Entreprise</label>
+          <input type="text" id="entreprise" name="entreprise" autocomplete="organization">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="telephone">Téléphone</label>
+          <input type="tel" id="telephone" name="telephone" autocomplete="tel">
+        </div>
+      </div>
+      <div class="field">
+        <label for="budget">Budget ads mensuel estimé</label>
+        <select id="budget" name="budget">
+          <option value="">— Sélectionnez —</option>
+          <option value="<5k">Moins de 5 000 €</option>
+          <option value="5k-20k">5 000 € — 20 000 €</option>
+          <option value="20k-50k">20 000 € — 50 000 €</option>
+          <option value="50k+">Plus de 50 000 €</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="services">Prestations envisagées</label>
+        <select id="services" name="services">
+          <option value="">— Sélectionnez —</option>
+          <option>Audit &amp; stratégie</option>
+          <option>Gestion de campagnes</option>
+          <option>Tracking &amp; data</option>
+          <option>Création publicitaire</option>
+          <option>Coaching / formation</option>
+          <option>Scale / international</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="message">Votre projet *</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Décrivez vos objectifs, votre activité et vos enjeux actuels."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Envoyer ma demande</button>
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      <p class="form-rgpd">Vos données sont uniquement utilisées pour répondre à votre demande et ne sont jamais transmises à des tiers.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="#top" class="brand">
+        <span class="brand-mark">AM</span>
+        <span class="brand-name">Antoine Mercier</span>
+      </a>
+      <p>Paid Media Manager freelance.<br>Acquisition rentable et durable.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Navigation pied de page">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#expertise">Expertise</a></li>
+        <li><a href="#experience">Expérience</a></li>
+        <li><a href="#cas-clients">Références</a></li>
+        <li><a href="#temoignages">Témoignages</a></li>
+        <li><a href="#apropos">À propos</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="footer-meta">
+      <p>mercierantoine7@gmail.com</p>
+      <p>+33 6 58 02 24 75</p>
+      <p>15 rue des Teinturiers, 31300 Toulouse</p>
+      <p>Disponible en France & en remote</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>© <span id="year"></span> Antoine Mercier · Paid Media Manager. Tous droits réservés.</p>
+      <p>Conçu pour la performance, pas pour le superflu.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
