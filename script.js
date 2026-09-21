@@ -65,41 +65,74 @@
     els.forEach(function (el) { el.classList.add("in"); });
   }
 
-  /* ---- Contact form: client-side validation + fake submit ---- */
-  var form = document.getElementById("devis-form");
-  var status = document.getElementById("form-status");
-  var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+/* ---- Contact form: client-side validation + envoi via FormSubmit ---- */
+var form = document.getElementById("devis-form");
+var status = document.getElementById("form-status");
+var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+var ENDPOINT = "https://formsubmit.co/ajax/mercierantoine7@gmail.com";
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    status.className = "form-status";
-    status.textContent = "";
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  status.className = "form-status";
+  status.textContent = "";
 
-    var nom = form.nom.value.trim();
-    var email = form.email.value.trim();
-    var message = form.message.value.trim();
+  var nom = form.nom.value.trim();
+  var email = form.email.value.trim();
+  var message = form.message.value.trim();
 
-    if (!nom || !email || !message) {
-      status.classList.add("err");
-      status.textContent = "Merci de renseigner votre nom, votre email et votre message.";
-      return;
-    }
-    if (!emailRe.test(email)) {
-      status.classList.add("err");
-      status.textContent = "Votre adresse email semble invalide.";
-      return;
-    }
+  if (!nom || !email || !message) {
+    status.classList.add("err");
+    status.textContent = "Merci de renseigner votre nom, votre email et votre message.";
+    return;
+  }
+  if (!emailRe.test(email)) {
+    status.classList.add("err");
+    status.textContent = "Votre adresse email semble invalide.";
+    return;
+  }
+  if (form._honey && form._honey.value) {
+    form.reset();
+    return;
+  }
 
-    var btn = form.querySelector("button[type=submit]");
-    btn.disabled = true;
-    btn.textContent = "Envoi en cours…";
+  var btn = form.querySelector("button[type=submit]");
+  btn.disabled = true;
+  btn.textContent = "Envoi en cours…";
 
-    window.setTimeout(function () {
+  var payload = {
+    _subject: "Nouvelle demande depuis votre site — " + nom,
+    _template: "table",
+    _captcha: "false",
+    _replyto: email,
+    "Nom complet": nom,
+    "Email": email,
+    "Entreprise": form.entreprise.value.trim(),
+    "Téléphone": form.telephone.value.trim(),
+    "Budget ads mensuel": form.budget.value,
+    "Prestations envisagées": form.services.value,
+    "Projet": message
+  };
+
+  window.fetch(ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Accept": "application/json" },
+    body: JSON.stringify(payload)
+  })
+    .then(function (res) {
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      return res.json();
+    })
+    .then(function () {
       status.classList.add("ok");
-      status.textContent = "Merci " + nom + " ! Votre demande a bien été prise en compte. Je vous réponds sous 24h ouvrées.";
+      status.textContent = "Merci " + nom + " ! Votre demande a bien été envoyée. Je vous réponds sous 24h ouvrées.";
       form.reset();
+    })
+    .catch(function () {
+      status.classList.add("err");
+      status.textContent = "Une erreur est survenue lors de l'envoi. Vous pouvez me contacter directement à mercierantoine7@gmail.com.";
+    })
+    .then(function () {
       btn.disabled = false;
       btn.textContent = "Envoyer ma demande";
-    }, 700);
-  });
-})();
+    });
+});
